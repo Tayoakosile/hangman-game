@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactComponent as IconPlayContainer } from "../assets/images/icon-play-container.svg";
 import { ReactComponent as PlayIcon } from "../assets/images/icon-play.svg";
+import StoreContext from "../contexts/StoreContext";
 
 const MainMenu = () => {
+  const { handleUpdatePageIndex } = useContext(StoreContext);
+
   return (
     <section className=" pt-24 h-full w-full px-5 flex items-center relative overflow-hidden" >
       
@@ -21,7 +24,7 @@ const MainMenu = () => {
           </div>
         </div>
 
-        <button className="bg-[#2463FF] px-[4rem] py-3 rounded-[2.5rem] mt-[3.63rem] text-white text-4xl">
+        <button className="bg-[#2463FF] px-[4rem] py-3 rounded-[2.5rem] mt-[3.63rem] text-white text-4xl tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95" onClick={()=>handleUpdatePageIndex(1)} >
           Submit
         </button>
       </div>

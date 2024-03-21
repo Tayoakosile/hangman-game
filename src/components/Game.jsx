@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactComponent as IconHeart } from "../assets/images/icon-heart.svg";
+import StoreContext from "../contexts/StoreContext";
 
 const Word = ({ shouldDisable = false, text = "U" }) => {
   return (
@@ -26,12 +27,17 @@ const WordAsKeyboard = ({ shouldDisable = false, text = "U" }) => {
 };
 
 const Game = () => {
+  const { handleToggleModal } = useContext(StoreContext);
+
   return (
     <section className="pt-[2rem] px-5 md:px-10 lg:px-[8rem]">
       <nav>
         <ul className="flex justify-between space-x-4  ">
           <li className="flex space-x-4  text-white flex-[0.5] items-center">
-            <button className=" bg-gradient-to-b from-[#FE71FE] via-[#B785FF] to-[#7199FF] bg-hm_blue rounded-full p-3  text-white text-4xl  shadow-[#FE71FE] shadow w-fit tracking-wide hover:bg-fuchsia-300 cursor-pointer ring-offset-fuchsia-400 ring-offset-1 focus:ring-4 active:scale-95">
+            <button
+              onClick={handleToggleModal}
+              className=" bg-gradient-to-b from-[#FE71FE] via-[#B785FF] to-[#7199FF] bg-hm_blue rounded-full p-3  text-white text-4xl  shadow-[#FE71FE] shadow w-fit tracking-wide hover:bg-fuchsia-300 cursor-pointer ring-offset-fuchsia-400 ring-offset-1 focus:ring-4 active:scale-95"
+            >
               <svg
                 width="18"
                 height="14"
@@ -86,27 +92,27 @@ const Game = () => {
 
       <ul className="grid grid-cols-6 gap-4 mt-[4.76rem]  w-full">
         <Word />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
-        <Word  />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
+        <Word />
       </ul>
 
       <ul className="grid grid-cols-6 gap-4 pt-[7rem]">
-        <WordAsKeyboard  />
+        <WordAsKeyboard />
       </ul>
     </section>
   );
