@@ -22,7 +22,7 @@ const PickCategory = () => {
       <ul className=" mt-[7.12rem] [&>li]:w-full px-6 md:px-10   shadow-lg text-2xl md:text-5xl capitalize  text-white space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
         {categories.map((category) => (
           <li key={category}>
-            <button className="py-6 md:py-16 rounded-3xl transition-all outline-hm_blue  active:scale-95 bg-hm_blue w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4">
+            <button className="py-6 md:py-16 rounded-3xl transition-all outline-hm_blue  bg-hm_blue w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95 ">
               {category}
             </button>
           </li>
