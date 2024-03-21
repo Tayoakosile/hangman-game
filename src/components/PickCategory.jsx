@@ -7,7 +7,6 @@ import data from "../data.json";
 const PickCategory = () => {
   const {
     handleUpdatePageIndex,
-    handleStoreCategoryPicked,
     handleCategorySelected,
     handleSetOptions,
     handleUpdateCategory,
@@ -41,7 +40,7 @@ const PickCategory = () => {
                 const allCategories =
                   data.categories[`${category?.toLowerCase()}`];
                 handleSetOptions(data.categories[`${category?.toLowerCase()}`]);
-                
+
                 const nonSelectedCategory = allCategories.filter(
                   (category) => !category.selected
                 );
@@ -49,14 +48,19 @@ const PickCategory = () => {
                 const randomIndex = Math.floor(
                   Math.random() * nonSelectedCategory.length
                 );
-                
+
                 const updatedSelectedCategory = {
-                  name:nonSelectedCategory[randomIndex]?.name?.toLowerCase().replaceAll(' ', ''),
-                  selected:nonSelectedCategory[randomIndex]?.selected
-                }
-                
-                handleUpdateCategory(allCategories, nonSelectedCategory[randomIndex]);
-                handleCategorySelected(updatedSelectedCategory)
+                  name: nonSelectedCategory[randomIndex]?.name
+                    ?.toLowerCase()
+                    .replaceAll(" ", ""),
+                  selected: nonSelectedCategory[randomIndex]?.selected,
+                };
+
+                handleUpdateCategory(
+                  allCategories,
+                  nonSelectedCategory[randomIndex]
+                );
+                handleCategorySelected(updatedSelectedCategory);
                 handleUpdatePageIndex(3);
               }}
             >

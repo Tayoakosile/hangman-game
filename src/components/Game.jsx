@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ReactComponent as IconHeart } from "../assets/images/icon-heart.svg";
 import StoreContext from "../contexts/StoreContext";
 
@@ -22,9 +22,7 @@ const WordAsKeyboard = ({ isDisabled = false, text = "U", onClick }) => {
           ? "bg-[#52589D] cursor-not-allowed"
           : "bg-white active:bg-slate-100 active:scale-90 transition-all"
       }  w-fit text-4xl md:text-[3rem] capitalize px-3 py-2 rounded-xl min-h-[3rem] md:min-h-[5.25rem] min-w-[2.5rem] md:min-w-[4rem]  text-[#261676]`}
-      onClick={() => {
-        if (!isDisabled) return onClick(text);
-      }}
+      onClick={() => (!isDisabled ? onClick(text) : null)}
     >
       {text}
     </button>
@@ -36,10 +34,12 @@ const Game = () => {
     handleToggleModal,
     category,
     categorySelected,
-    handleUpdateCategory,
+    handleUpdateChanceLeft,
+    chancesLeft,
   } = useContext(StoreContext);
 
   const [updatedCategories, setUpdatedCategories] = useState([]);
+  const [progressBarPercentage, setProgressBarPercentage] = useState(100);
   const [allAlphabets, setAllAlphabets] = useState([
     { letter: "a", wasPicked: false },
     { letter: "b", wasPicked: false },
@@ -72,11 +72,7 @@ const Game = () => {
   const handleOnLetterClicked = (selectedLetter) => {
     selectedLetter = selectedLetter?.toLowerCase();
 
-   
-    const isSelectedLetterCorrect = updatedCategories.some(
-      (category) => category.letter === selectedLetter
-    );
-
+    // Disable Letter user selected
     setAllAlphabets(
       [...allAlphabets]?.map(({ letter, wasPicked }) => {
         if (
@@ -94,6 +90,12 @@ const Game = () => {
         };
       })
     );
+
+    const isSelectedLetterCorrect = updatedCategories.some(
+      (category) => category.letter === selectedLetter
+    );
+    console.log(updatedCategories,'updatedCategories')
+
     if (isSelectedLetterCorrect) {
       setUpdatedCategories(
         [...updatedCategories]?.map((newCategory) => {
@@ -106,13 +108,9 @@ const Game = () => {
             : newCategory;
         })
       );
-
-      
       return;
     }
-
-    
-    
+    handleUpdateChanceLeft();
   };
 
   useEffect(() => {
@@ -130,7 +128,10 @@ const Game = () => {
     );
   }, [categorySelected]);
 
-  console.log(categorySelected?.name?.split(" "), "categorySelected");
+  useEffect(() => {
+    setProgressBarPercentage(12.5 * chancesLeft);
+  }, [chancesLeft]);
+  
 
   return (
     <section className="pt-[2rem] px-5 md:px-10 lg:px-[8.32rem]  capitalize">
@@ -178,11 +179,14 @@ const Game = () => {
               <div
                 className="flex w-full h-4 bg-white p-2 rounded-full overflow-hidden items-center"
                 role="progressbar"
-                aria-valuenow="25"
+                aria-valuenow={progressBarPercentage}
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                <div className="flex flex-col justify-center rounded-full overflow-hidden bg-[#261676] text-md text-white text-center whitespace-nowrap transition h-2  duration-500  w-[100%]"></div>
+                <div
+                  className="flex flex-col justify-center rounded-full overflow-hidden bg-[#261676] text-md text-white text-center whitespace-nowrap transition h-2  duration-500 "
+                  style={{ width: `${progressBarPercentage}%` }}
+                ></div>
               </div>
             </div>
 
@@ -218,8 +222,6 @@ const Game = () => {
             onClick={handleOnLetterClicked}
           />
         ))}
-        <WordAsKeyboard />
-        <WordAsKeyboard />
       </ul>
     </section>
   );
