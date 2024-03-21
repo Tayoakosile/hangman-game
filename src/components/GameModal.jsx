@@ -3,8 +3,9 @@ import HeadingText from "./reusables/HeadingText";
 import StoreContext from "../contexts/StoreContext";
 
 const GameModal = () => {
-  const { handleToggleModal, handleUpdatePageIndex } = useContext(StoreContext);
+  const { handleToggleModal, handleUpdatePageIndex,allCategories } = useContext(StoreContext);
 
+  console.log(allCategories,'allCategories')
   useEffect(() => {
     const listenForKeyDownEvent = document.addEventListener(
       "keydown",

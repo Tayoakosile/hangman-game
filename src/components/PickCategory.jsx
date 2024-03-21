@@ -2,11 +2,18 @@ import React, { useContext } from "react";
 import { ReactComponent as IconBack } from "../assets/images/icon-back.svg";
 import HeadingText from "./reusables/HeadingText";
 import StoreContext from "../contexts/StoreContext";
+import data from "../data.json";
 
 const PickCategory = () => {
-  const { handleUpdatePageIndex } = useContext(StoreContext);
+  const {
+    handleUpdatePageIndex,
+    handleStoreCategoryPicked,
+    handleCategorySelected,
+    handleSetOptions,
+    handleUpdateCategory,
+  } = useContext(StoreContext);
 
-  const categories = [
+  const categoriesToSelectFrom = [
     "Movies",
     "TV Shows",
     "Countries",
@@ -26,10 +33,32 @@ const PickCategory = () => {
         <HeadingText text="Pick a Category" />
       </div>
       <ul className=" mt-[7.12rem] [&>li]:w-full px-6 md:px-10   shadow-lg text-2xl md:text-5xl capitalize  text-white space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-        {categories.map((category) => (
+        {categoriesToSelectFrom.map((category) => (
           <li key={category}>
-            <button className="py-6 md:py-16 rounded-3xl transition-all outline-hm_blue  bg-hm_blue w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95 "
-            onClick={() => handleUpdatePageIndex(3)}
+            <button
+              className="py-6 md:py-16 rounded-3xl transition-all outline-hm_blue  bg-hm_blue w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95 "
+              onClick={() => {
+                const allCategories =
+                  data.categories[`${category?.toLowerCase()}`];
+                handleSetOptions(data.categories[`${category?.toLowerCase()}`]);
+                
+                const nonSelectedCategory = allCategories.filter(
+                  (category) => !category.selected
+                );
+
+                const randomIndex = Math.floor(
+                  Math.random() * nonSelectedCategory.length
+                );
+                
+                const updatedSelectedCategory = {
+                  name:nonSelectedCategory[randomIndex]?.name?.toLowerCase().replaceAll(' ', ''),
+                  selected:nonSelectedCategory[randomIndex]?.selected
+                }
+                
+                handleUpdateCategory(allCategories, nonSelectedCategory[randomIndex]);
+                handleCategorySelected(updatedSelectedCategory)
+                handleUpdatePageIndex(3);
+              }}
             >
               {category}
             </button>

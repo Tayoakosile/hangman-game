@@ -1,6 +1,6 @@
 {
     "categories": {
-        "Movies": [
+        "movies": [
             {"name": "The Godfather", "selected": false},
             {"name": "Titanic", "selected": false},
             {"name": "Inception", "selected": false},
@@ -32,7 +32,7 @@
             {"name": "Raiders of the Lost Ark", "selected": false},
             {"name": "La La Land", "selected": false}
         ],
-        "TV Shows": [
+        "tv shows": [
             {"name": "Breaking Bad", "selected": false},
             {"name": "South Park", "selected": false},
             {"name": "Game of Thrones", "selected": false},
@@ -64,7 +64,7 @@
             {"name": "Ted Lasso", "selected": false},
             {"name": "True Detective", "selected": false}
         ],
-        "Countries": [
+        "countries": [
             {"name": "Australia", "selected": false},
             {"name": "Brazil", "selected": false},
             {"name": "Canada", "selected": false},
@@ -96,7 +96,7 @@
             {"name": "Belgium", "selected": false},
             {"name": "Chile", "selected": false}
         ],
-        "Capital Cities": [
+        "capital cities": [
             {"name": "Tokyo", "selected": false},
             {"name": "Paris", "selected": false},
             {"name": "London", "selected": false},
@@ -128,7 +128,7 @@
             {"name": "Warsaw", "selected": false},
             {"name": "Amsterdam", "selected": false}
         ],
-        "Animals": [
+        "animals": [
             {"name": "Elephant", "selected": false},
             {"name": "Lion", "selected": false},
             {"name": "Giraffe", "selected": false},
@@ -160,7 +160,7 @@
             {"name": "Turtle", "selected": false},
             {"name": "Snake", "selected": false}
         ],
-        "Sports": [
+        "sports": [
             {"name": "Soccer", "selected": false},
             {"name": "Basketball", "selected": false},
             {"name": "Tennis", "selected": false},

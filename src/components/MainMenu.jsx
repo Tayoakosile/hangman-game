@@ -19,13 +19,13 @@ const MainMenu = () => {
         <div className="relative lg:mt-24">
           
           <IconPlayContainer />
-          <div className="absolute top-12 right-[5.4rem] w-5 h-5 ">
+          <div className="absolute top-12 right-[5.4rem] w-5 h-5 " onClick={()=>handleUpdatePageIndex(2)}>
             <PlayIcon />
           </div>
         </div>
 
         <button className="bg-[#2463FF] px-[4rem] py-3 rounded-[2.5rem] mt-[3.63rem] text-white text-4xl tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95" onClick={()=>handleUpdatePageIndex(1)} >
-          Submit
+          How to Play
         </button>
       </div>
     </section>

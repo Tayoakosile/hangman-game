@@ -12,7 +12,7 @@ function App() {
   const { shouldShowModal, pageIndex } = useContext(StoreContext);
 
   return (
-    <div class="bg-hman_bg--mobile md:bg-hman_bg--tablet lg:bg-hman_bg--desktop @apply h-dvh bg-no-repeat w-dvw bg-cover overflow-y-scroll pb-6">
+    <div className="bg-hman_bg--mobile md:bg-hman_bg--tablet lg:bg-hman_bg--desktop @apply h-dvh bg-no-repeat w-dvw bg-cover overflow-y-scroll pb-6">
       {pageIndex === 0 ? (
         <MainMenu />
       ) : pageIndex === 1 ? (
