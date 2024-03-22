@@ -11,11 +11,12 @@ const StoreContext = createContext({
   modalContent: {
     won: false,
     lost: false,
-    textContent: "Paused",
+    textContent: '',
   },
   handleToggleModal: () => {},
   // handleToggleModal: () => {},
   handleStoreCategoryPicked: () => {},
+  handlePlayAudio: () => {},
   handleUpdateCategory: () => {},
   
   handleUpdateModalContent: () => {},

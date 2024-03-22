@@ -10,7 +10,6 @@ const GameModal = () => {
     handleCategorySelected,
     handlePlayAgain,
     allCategories,
-
     modalContent,
   } = useContext(StoreContext);
 
@@ -45,9 +44,9 @@ const GameModal = () => {
                 );
                 handleCategorySelected(nonSelectedCategory[randomIndex]);
                 // handleUpdatePageIndex(0);
-                setInterval(() => {
+                setTimeout(() => {
                   handlePlayAgain();
-                }, 500);
+                }, 100);
               }
               handleToggleModal(false);
             }}

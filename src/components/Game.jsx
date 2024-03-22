@@ -7,7 +7,7 @@ const Word = ({ isDisabled = false, text = "U" }) => {
     <div
       className={` ${
         isDisabled ? "bg-[#1B2182]" : "bg-hm_blue"
-      }   text-4xl md:text-[4rem] w-full  lg:text-[5.5rem] px-3 py-2 rounded-xl md:rounded-[3rem] max-w-[2.5rem] md:max-w-[5rem] lg:max-w-[7rem] text-white h-[4.13rem] md:h-[7rem]  xl:h-[8rem]   text-center flex items-center justify-center`}
+      }   text-4xl md:text-[4rem] w-full  lg:text-[5.5rem] px-3 py-2 rounded-xl md:rounded-[3rem] min-w-[2.5rem] md:max-w-[5rem] lg:max-w-[7rem] text-white h-[4.13rem] md:h-[7rem]  xl:h-[8rem]   text-center flex items-center justify-center`}
     >
       {isDisabled ? "" : text}
     </div>
@@ -20,7 +20,7 @@ const WordAsKeyboard = ({ isDisabled = false, text = "U", onClick }) => {
       className={` ${
         isDisabled
           ? "bg-[#52589D] cursor-not-allowed"
-          : "bg-white active:scale-95 transition-all hover:bg-hm_blue hover:text-white"
+          : "bg-white active:scale-95 justify-self-center transition-all hover:bg-hm_blue hover:text-white"
       }  w-fit text-4xl md:text-[3rem] capitalize px-3 py-2 rounded-xl min-h-[3rem] md:min-h-[5.25rem] max-w-[2.5rem] md:min-w-[4rem] lg:min-w-[6.82rem]  text-[#261676]`}
       onClick={() => (!isDisabled ? onClick(text) : null)}
     >
@@ -37,6 +37,7 @@ const Game = () => {
     handleUpdateChanceLeft,
     handleUpdateModalContent,
     handleToggleModal,
+    handlePlayAudio,
   } = useContext(StoreContext);
 
   const [updatedCategories, setUpdatedCategories] = useState([]);
@@ -99,6 +100,8 @@ const Game = () => {
     );
 
     if (isSelectedLetterCorrect) {
+      handlePlayAudio("valid");
+
       setUpdatedCategories(
         [...updatedCategories]?.map((newCategory) => {
           return newCategory.letter === selectedLetter ||
@@ -113,6 +116,7 @@ const Game = () => {
 
       return;
     }
+    handlePlayAudio("invalid");
     handleUpdateChanceLeft();
   };
 
@@ -133,10 +137,11 @@ const Game = () => {
   }, [categorySelected]);
 
   useEffect(() => {
-    setProgressBarPercentage(14.286 * chancesLeft);
+    setProgressBarPercentage(14.3 * chancesLeft);
   }, [chancesLeft]);
 
   useEffect(() => {
+    console.log("This ran in game");
     if (!updatedCategories.length) return;
 
     if (
@@ -152,8 +157,12 @@ const Game = () => {
         },
         true
       );
+
+      setTimeout(() => {
+        handlePlayAudio("won");
+      }, 200);
     }
-  }, [updatedCategories, chancesLeft]);
+  }, [updatedCategories]);
 
   return (
     <section className="pt-[1.5rem] md:pt-16 lg:pt-16 px-5 md:px-10 lg:px-[6.5rem] 2xl:px-[7rem] capitalize">
@@ -163,7 +172,7 @@ const Game = () => {
             <button
               onClick={() => {
                 handleToggleModal();
-                return;
+                
                 handleUpdateModalContent(
                   {
                     textContent: "Paused",
@@ -232,12 +241,14 @@ const Game = () => {
         </ul>
       </nav>
 
-      <section
+      <div
         className={`${
           updatedCategories?.length <= 4
             ? "flex justify-center space-x-4"
-            : `md:grid md:grid-cols-${updatedCategories?.length >=9 ? 7:updatedCategories?.length} md:gap-4 lg:flex lg:flex-wrap justify-center`
-        } mt-[4.76rem] md:mt-[7rem] lg:mt-[5.5rem] w-full xl:px-[12rem]`}
+            : `grid sm:grid-cols-${
+                updatedCategories?.length >= 9 ? 7 : updatedCategories?.length
+              } gap-4 lg:flex lg:flex-wrap justify-center`
+        } mt-[4.76rem] md:mt-[7rem] lg:mt-[5.5rem] w-full xl:px-[12rem]  grid-cols-5`}
       >
         {updatedCategories?.map((category, index) => (
           <Word
@@ -246,9 +257,9 @@ const Game = () => {
             isDisabled={!category?.wasCorrectlyPicked}
           />
         ))}
-      </section>
+      </div>
 
-      <ul className="md:grid md:grid-cols-9 lg:flex lg:flex-wrap lg:w-[100%] mt-[5rem] md:mt-[8.4rem] w-full grid grid-cols-8 gap-4 lg:justify-center 2xl:w-[80%] 2xl:mx-auto ">
+      <div className="md:grid md:grid-cols-9 lg:flex lg:flex-wrap lg:w-[100%] mt-[5rem] md:mt-[8.4rem] w-full grid grid-cols-5 sm:grid-cols-7 gap-y-4 sm:gap-4 lg:justify-center 2xl:w-[80%] 2xl:mx-auto ">
         {allAlphabets.map(({ letter, wasPicked }) => (
           <WordAsKeyboard
             key={letter}
@@ -257,7 +268,7 @@ const Game = () => {
             onClick={handleOnLetterClicked}
           />
         ))}
-      </ul>
+      </div>
     </section>
   );
 };

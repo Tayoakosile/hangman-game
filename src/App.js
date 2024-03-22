@@ -22,7 +22,7 @@ function App() {
             // exit={{ opacity: 0 }}
             exit={{ scale: 0.4, opacity: 0 }}
             transition={{
-              duration: 0.4,
+              duration: 0.2,
             }}
           >
             <MainMenu />
@@ -35,7 +35,7 @@ function App() {
             // exit={{ opacity: 0 }}
             exit={{ scale: 0.4, opacity: 0 }}
             transition={{
-              duration: 0.4,
+              duration: 0.2,
             }}
           >
             <Instructions />
@@ -48,7 +48,7 @@ function App() {
             // exit={{ opacity: 0 }}
             exit={{ scale: 0.4, opacity: 0 }}
             transition={{
-              duration: 0.4,
+              duration: 0.2,
             }}
           >
             <PickCategory />
@@ -61,7 +61,7 @@ function App() {
             // exit={{ opacity: 0 }}
             exit={{ scale: 0.4, opacity: 0 }}
             transition={{
-              duration: 0.4,
+              duration: 0.2,
             }}
           >
             <Game />
