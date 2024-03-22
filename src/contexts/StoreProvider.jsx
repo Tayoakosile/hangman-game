@@ -1,5 +1,9 @@
 import { useState } from "react";
 import StoreContext from "./StoreContext";
+import userLostAudio from "../assets/audio/user-lost.wav";
+import userWonAudio from "../assets/audio/user-won.mp3";
+import invalidSelectionAudio from "../assets/audio/invalid.mp3";
+import validSelectionAudio from "../assets/audio/valid.wav";
 
 // Create a ThemeProvider component to provide the context value to child components
 const StoreProvider = ({ children }) => {
@@ -31,7 +35,9 @@ const StoreProvider = ({ children }) => {
     setCategory(categoryPicked);
 
   const handleUpdateChanceLeft = () => {
+    console.log('this ran here')
     if (chancesLeft <= 0) {
+      handlePlayAudio('lost')
       handleUpdateModalContent(
         {
           ...modalContent,
@@ -41,6 +47,7 @@ const StoreProvider = ({ children }) => {
         true
       );
 
+      
       return;
     }
     setChancesLeft(chancesLeft - 1);
@@ -63,10 +70,24 @@ const StoreProvider = ({ children }) => {
     setCategorySelected(categorySelected);
 
   const handleUpdateModalContent = (obj, value) => {
-    setModalContent(obj);
+    setModalContent({...obj});
     setShouldShowModal(value);
   };
+
+  const handlePlayAudio = (audioType = "lost") => {
+    const allAudios = {
+      won: userWonAudio,
+      lost: userLostAudio,
+      invalid: invalidSelectionAudio,
+      valid: validSelectionAudio,
+    };
+    const audio = new Audio(allAudios[`${audioType}`]);
+
+    audio.play();
+  };
+
   const handlePlayAgain = () => {
+    console.log('this ran also')
     setChancesLeft(7);
     setModalContent({
       lost: false,
@@ -94,6 +115,7 @@ const StoreProvider = ({ children }) => {
         handlePlayAgain,
         handleCategorySelected,
         handleUpdateModalContent,
+        handlePlayAudio,
       }}
     >
       {children}
