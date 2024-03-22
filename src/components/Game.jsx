@@ -19,7 +19,7 @@ const WordAsKeyboard = ({ isDisabled = false, text = "U", onClick }) => {
     <button
       className={` ${
         isDisabled
-          ? "bg-[#52589D] cursor-not-allowed"
+          ? "bg-[#52589D] cursor-not-allowed justify-self-center"
           : "bg-white active:scale-95 justify-self-center transition-all hover:bg-hm_blue hover:text-white"
       }  w-fit text-4xl md:text-[3rem] capitalize px-3 py-2 rounded-xl min-h-[3rem] md:min-h-[5.25rem] max-w-[2.5rem] md:min-w-[4rem] lg:min-w-[6.82rem]  text-[#261676]`}
       onClick={() => (!isDisabled ? onClick(text) : null)}
