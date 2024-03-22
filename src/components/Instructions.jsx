@@ -18,8 +18,7 @@ const instructionList = [
   },
 ];
 const Instructions = () => {
-  const { handleUpdatePageIndex,handleUpdatePreviousIndex } = useContext(StoreContext);
-  
+  const { handleUpdatePageIndex } = useContext(StoreContext);
 
   return (
     <div className="w-full h-full px-0">
@@ -30,7 +29,6 @@ const Instructions = () => {
           duration-75"
           onClick={() => {
             handleUpdatePageIndex(0);
-            handleUpdatePreviousIndex(1)
           }}
         >
           <IconBack />

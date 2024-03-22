@@ -17,7 +17,7 @@ const StoreContext = createContext({
   // handleToggleModal: () => {},
   handleStoreCategoryPicked: () => {},
   handleUpdateCategory: () => {},
-  handleUpdatePreviousIndex: () => {},
+  
   handleUpdateModalContent: () => {},
   handleUpdateChanceLeft: () => {},
   handleCategorySelected: () => {},

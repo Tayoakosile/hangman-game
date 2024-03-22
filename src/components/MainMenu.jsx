@@ -4,8 +4,7 @@ import { ReactComponent as PlayIcon } from "../assets/images/icon-play.svg";
 import StoreContext from "../contexts/StoreContext";
 
 const MainMenu = () => {
-  const { handleUpdatePageIndex, handleUpdatePreviousIndex } =
-    useContext(StoreContext);
+  const { handleUpdatePageIndex } = useContext(StoreContext);
 
   return (
     <section className=" pt-24 md:pt-32 lg:pt-52 h-full w-full px-5 flex items-center relative overflow-hidden">
@@ -18,7 +17,6 @@ const MainMenu = () => {
           className="relative lg:mt-24"
           onClick={() => {
             handleUpdatePageIndex(2);
-            handleUpdatePreviousIndex(0);
           }}
         >
           <IconPlayContainer />

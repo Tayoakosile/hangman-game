@@ -7,7 +7,6 @@ import data from "../data.json";
 const PickCategory = () => {
   const {
     handleUpdatePageIndex,
-    handleUpdatePreviousIndex,
     handleCategorySelected,
     handleStoreCategoryPicked,
     handleSetOptions,
@@ -29,7 +28,6 @@ const PickCategory = () => {
           className="scale-50 active:scale-[.4] md:scale-75 md:active:scale-[.70]  lg:scale-100 lg:active:scale-90 transition-all ease-in"
           onClick={() => {
             handleUpdatePageIndex(0);
-            handleUpdatePreviousIndex(2)
           }}
         >
           <IconBack />
