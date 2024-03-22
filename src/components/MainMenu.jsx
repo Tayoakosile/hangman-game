@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { ReactComponent as IconPlayContainer } from "../assets/images/icon-play-container.svg";
-import { ReactComponent as PlayIcon } from "../assets/images/icon-play.svg";
+import { ReactComponent as IconPlayContainer } from "./../assets/images/icon-play-container.svg";
+import { ReactComponent as PlayIcon } from "./../assets/images/icon-play.svg";
 import StoreContext from "../contexts/StoreContext";
 
 const MainMenu = () => {

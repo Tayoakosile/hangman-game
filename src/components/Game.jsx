@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-// import { ReactComponent as IconHeart } from "../assets/images/icon-heart.svg";
+// import { ReactComponent as IconHeart } from "./../assets/images/icon-heart.svg";
 import StoreContext from "../contexts/StoreContext";
 
 const Word = ({ isDisabled = false, text = "U" }) => {
