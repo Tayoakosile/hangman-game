@@ -259,7 +259,7 @@ const Game = () => {
         ))}
       </div>
 
-      <div className="md:grid md:grid-cols-9 lg:flex lg:flex-wrap lg:w-[100%] mt-[5rem] md:mt-[8.4rem] w-full grid grid-cols-5 sm:grid-cols-7 gap-y-4 sm:gap-4 lg:justify-center 2xl:w-[80%] 2xl:mx-auto ">
+      <div className="md:grid md:grid-cols-9 lg:flex lg:flex-wrap lg:w-[100%] mt-[5rem] md:mt-[8.4rem] w-full grid grid-cols-7 gap-y-2 sm:gap-4 lg:justify-center 2xl:w-[80%] 2xl:mx-auto ">
         {allAlphabets.map(({ letter, wasPicked }) => (
           <WordAsKeyboard
             key={letter}
