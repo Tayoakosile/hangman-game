@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ReactComponent as IconBack } from "../assets/images/icon-back.svg";
+import { ReactComponent as IconBack } from "./../assets/images/icon-back.svg";
 import HeadingText from "./reusables/HeadingText";
 import StoreContext from "../contexts/StoreContext";
 
