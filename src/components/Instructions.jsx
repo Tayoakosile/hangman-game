@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { ReactComponent as IconBack } from "../assets/images/icon-back.svg";
 import HeadingText from "./reusables/HeadingText";
 import StoreContext from "../contexts/StoreContext";
@@ -18,28 +18,27 @@ const instructionList = [
   },
 ];
 const Instructions = () => {
-  const { handleUpdatePageIndex } = useContext(StoreContext);
-  useEffect(() => {
-    const listenForKeyDownEvent = document.addEventListener(
-      "keydown",
-      (e) => e.key.toLowerCase() === "escape" && handleUpdatePageIndex(0)
-    );
-    return () => document.removeEventListener("keydown", listenForKeyDownEvent);
-  }, []);
+  const { handleUpdatePageIndex,handleUpdatePreviousIndex } = useContext(StoreContext);
+  
 
   return (
     <div className="w-full h-full px-0">
       <div className="flex  items-center justify-between   pr-5 pt-4 md:pt-10 md:pr-10 md:pl-5">
         <button
-          className="scale-50 md:scale-75 lg:scale-100 cursor-pointer active:scale-95 "
-          onClick={() => handleUpdatePageIndex(0)}
+          className="scale-50 cursor-pointer 
+          active:scale-[.4] md:scale-75 md:active:scale-[.70]  lg:scale-100 lg:active:scale-90 transition-all ease-in
+          duration-75"
+          onClick={() => {
+            handleUpdatePageIndex(0);
+            handleUpdatePreviousIndex(1)
+          }}
         >
           <IconBack />
         </button>
         <HeadingText text="How to Play" />
       </div>
 
-      <section className="space-y-6 lg:space-y-0 lg:space-x-6 px-6 md:px-10 lg:px-[7rem] mt-20 lg:mt-16 2xl:mt-24 pb-6 lg:grid lg:grid-cols-3">
+      <section className="space-y-6 lg:space-y-0 lg:space-x-6 px-6 md:px-10 lg:px-[7rem] mt-4 lg:mt-16 2xl:mt-24 pb-6 lg:grid lg:grid-cols-3">
         {instructionList.map((item, index) => (
           <div key={item.title}>
             <div className="min-h-[11.6rem] lg:min-h-[34.5rem]  rounded-[2rem] bg-white p-8 lg:p-0 space-y-2 md:space-y-0 md:flex md:items-center md:space-x-8 lg:space-x-0 ">

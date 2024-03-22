@@ -5,8 +5,9 @@ import StoreContext from "./StoreContext";
 const StoreProvider = ({ children }) => {
   const [shouldShowModal, setShouldShowModal] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
-  const [category, setCategory] = useState("");
-  const [chancesLeft, setChancesLeft] = useState(8);
+
+  const [categoryTitle, setCategory] = useState("");
+  const [chancesLeft, setChancesLeft] = useState(7);
   const [modalContent, setModalContent] = useState({
     won: false,
     lost: false,
@@ -20,6 +21,7 @@ const StoreProvider = ({ children }) => {
     setShouldShowModal(false);
     setPageIndex(index);
   };
+
   const handleToggleModal = (status) =>
     setShouldShowModal(status || !shouldShowModal);
 
@@ -30,18 +32,21 @@ const StoreProvider = ({ children }) => {
 
   const handleUpdateChanceLeft = () => {
     if (chancesLeft <= 0) {
-      setModalContent({
-        ...modalContent,
-        lost: true,
-        textContent: "You Lose",
-      });
-      setShouldShowModal(true);
+      handleUpdateModalContent(
+        {
+          ...modalContent,
+          lost: true,
+          textContent: "You Lose",
+        },
+        true
+      );
 
       return;
     }
     setChancesLeft(chancesLeft - 1);
   };
   const handleUpdateCategory = (categories, name) => {
+    // Update Category List and Filter `selected=true` category from the list.
     const newCategories = allCategories?.length ? allCategories : categories;
     const updatedCategories = [...newCategories]?.map((category) => {
       if (
@@ -56,10 +61,18 @@ const StoreProvider = ({ children }) => {
   };
   const handleCategorySelected = (categorySelected) =>
     setCategorySelected(categorySelected);
+
+  const handleUpdateModalContent = (obj, value) => {
+    setModalContent(obj);
+    setShouldShowModal(value);
+  };
   const handlePlayAgain = () => {
-    setTimeout(() => {
-      setChancesLeft(8);
-    }, 100);
+    setChancesLeft(7);
+    setModalContent({
+      lost: false,
+      won: false,
+      textContent: "Paused",
+    });
   };
 
   return (
@@ -67,7 +80,7 @@ const StoreProvider = ({ children }) => {
       value={{
         shouldShowModal,
         pageIndex,
-        category,
+        categoryTitle,
         chancesLeft,
         allCategories,
         modalContent,
@@ -80,6 +93,7 @@ const StoreProvider = ({ children }) => {
         handleUpdateChanceLeft,
         handlePlayAgain,
         handleCategorySelected,
+        handleUpdateModalContent,
       }}
     >
       {children}

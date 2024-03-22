@@ -4,7 +4,8 @@ const StoreContext = createContext({
   shouldShowModal: false,
   pageIndex: 0,
   chancesLeft: 8,
-  category: "",
+  previousIndex: null,
+  categoryTitle: "",
   categorySelected: {},
   allCategories: [],
   modalContent: {
@@ -16,6 +17,8 @@ const StoreContext = createContext({
   // handleToggleModal: () => {},
   handleStoreCategoryPicked: () => {},
   handleUpdateCategory: () => {},
+  handleUpdatePreviousIndex: () => {},
+  handleUpdateModalContent: () => {},
   handleUpdateChanceLeft: () => {},
   handleCategorySelected: () => {},
   handleUpdatePageIndex: () => {},

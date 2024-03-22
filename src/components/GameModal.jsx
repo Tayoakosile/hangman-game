@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import HeadingText from "./reusables/HeadingText";
 import StoreContext from "../contexts/StoreContext";
 
@@ -6,8 +6,11 @@ const GameModal = () => {
   const {
     handleToggleModal,
     handleUpdatePageIndex,
+    handleUpdateCategory,
+    handleCategorySelected,
     handlePlayAgain,
-    
+    allCategories,
+
     modalContent,
   } = useContext(StoreContext);
 
@@ -29,23 +32,43 @@ const GameModal = () => {
             className="bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95"
             onClick={() => {
               if (modalContent.lost || modalContent.won) {
-                handleUpdatePageIndex(0);
-                handlePlayAgain();
+                const nonSelectedCategory = allCategories.filter(
+                  (category) => !category.selected
+                );
+
+                const randomIndex = Math.floor(
+                  Math.random() * nonSelectedCategory.length
+                );
+                handleUpdateCategory(
+                  allCategories,
+                  nonSelectedCategory[randomIndex]
+                );
+                handleCategorySelected(nonSelectedCategory[randomIndex]);
+                // handleUpdatePageIndex(0);
+                setInterval(() => {
+                  handlePlayAgain();
+                }, 500);
               }
               handleToggleModal(false);
             }}
           >
-            {modalContent.lost || modalContent.win ? "Play Again!" : "Continue"}
+            {modalContent.lost || modalContent.won ? "Play Again!" : "Continue"}
           </button>
           <button
             className="bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95"
-            onClick={() => handleUpdatePageIndex(2)}
+            onClick={() => {
+              handleUpdatePageIndex(2);
+              handlePlayAgain();
+            }}
           >
             New Category
           </button>
           <button
             className=" bg-gradient-to-b from-[#FE71FE] via-[#B785FF] to-[#7199FF] bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl  shadow-[#FE71FE] shadow w-full tracking-wide hover:bg-fuchsia-300 cursor-pointer ring-offset-fuchsia-400 ring-offset-1 focus:ring-4 active:scale-95"
-            onClick={() => handleUpdatePageIndex(0)}
+            onClick={() => {
+              handleUpdatePageIndex(0);
+              handlePlayAgain();
+            }}
           >
             {/* border-t-[#C643FC]  border-x-[#C643FC] border-4 border-b-[#140E66] */}
             Quit Game
