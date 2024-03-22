@@ -9,6 +9,12 @@ import validSelectionAudio from "../assets/audio/valid.wav";
 const StoreProvider = ({ children }) => {
   const [shouldShowModal, setShouldShowModal] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
+  const [allAudios,_] = useState({
+    won: userWonAudio,
+    lost: userLostAudio,
+    invalid: invalidSelectionAudio,
+    valid: validSelectionAudio,
+  });
 
   const [categoryTitle, setCategory] = useState("");
   const [chancesLeft, setChancesLeft] = useState(7);
@@ -35,9 +41,9 @@ const StoreProvider = ({ children }) => {
     setCategory(categoryPicked);
 
   const handleUpdateChanceLeft = () => {
-    console.log('this ran here')
+    console.log("this ran here");
     if (chancesLeft <= 0) {
-      handlePlayAudio('lost')
+      handlePlayAudio("lost");
       handleUpdateModalContent(
         {
           ...modalContent,
@@ -47,7 +53,6 @@ const StoreProvider = ({ children }) => {
         true
       );
 
-      
       return;
     }
     setChancesLeft(chancesLeft - 1);
@@ -70,24 +75,18 @@ const StoreProvider = ({ children }) => {
     setCategorySelected(categorySelected);
 
   const handleUpdateModalContent = (obj, value) => {
-    setModalContent({...obj});
+    setModalContent({ ...obj });
     setShouldShowModal(value);
   };
 
   const handlePlayAudio = (audioType = "lost") => {
-    const allAudios = {
-      won: userWonAudio,
-      lost: userLostAudio,
-      invalid: invalidSelectionAudio,
-      valid: validSelectionAudio,
-    };
     const audio = new Audio(allAudios[`${audioType}`]);
 
     audio.play();
   };
 
   const handlePlayAgain = () => {
-    console.log('this ran also')
+    console.log("this ran also");
     setChancesLeft(7);
     setModalContent({
       lost: false,
