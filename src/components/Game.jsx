@@ -20,7 +20,7 @@ const WordAsKeyboard = ({ isDisabled = false, text = "U", onClick }) => {
       className={` ${
         isDisabled
           ? "bg-[#52589D] cursor-not-allowed"
-          : "bg-white active:scale-95 transition-all hover:bg-hm_blue hover:text-white"
+          : "bg-white active:scale-95 justify-self-center transition-all hover:bg-hm_blue hover:text-white"
       }  w-fit text-4xl md:text-[3rem] capitalize px-3 py-2 rounded-xl min-h-[3rem] md:min-h-[5.25rem] max-w-[2.5rem] md:min-w-[4rem] lg:min-w-[6.82rem]  text-[#261676]`}
       onClick={() => (!isDisabled ? onClick(text) : null)}
     >
@@ -172,7 +172,7 @@ const Game = () => {
             <button
               onClick={() => {
                 handleToggleModal();
-                return;
+                
                 handleUpdateModalContent(
                   {
                     textContent: "Paused",
@@ -241,14 +241,14 @@ const Game = () => {
         </ul>
       </nav>
 
-      <section
+      <div
         className={`${
           updatedCategories?.length <= 4
             ? "flex justify-center space-x-4"
-            : `grid grid-cols-${
+            : `grid sm:grid-cols-${
                 updatedCategories?.length >= 9 ? 7 : updatedCategories?.length
               } gap-4 lg:flex lg:flex-wrap justify-center`
-        } mt-[4.76rem] md:mt-[7rem] lg:mt-[5.5rem] w-full xl:px-[12rem]  `}
+        } mt-[4.76rem] md:mt-[7rem] lg:mt-[5.5rem] w-full xl:px-[12rem]  grid-cols-5`}
       >
         {updatedCategories?.map((category, index) => (
           <Word
@@ -257,9 +257,9 @@ const Game = () => {
             isDisabled={!category?.wasCorrectlyPicked}
           />
         ))}
-      </section>
+      </div>
 
-      <ul className="md:grid md:grid-cols-9 lg:flex lg:flex-wrap lg:w-[100%] mt-[5rem] md:mt-[8.4rem] w-full grid grid-cols-7 gap-4 lg:justify-center 2xl:w-[80%] 2xl:mx-auto ">
+      <div className="md:grid md:grid-cols-9 lg:flex lg:flex-wrap lg:w-[100%] mt-[5rem] md:mt-[8.4rem] w-full grid grid-cols-5 sm:grid-cols-7 gap-y-4 sm:gap-4 lg:justify-center 2xl:w-[80%] 2xl:mx-auto ">
         {allAlphabets.map(({ letter, wasPicked }) => (
           <WordAsKeyboard
             key={letter}
@@ -268,7 +268,7 @@ const Game = () => {
             onClick={handleOnLetterClicked}
           />
         ))}
-      </ul>
+      </div>
     </section>
   );
 };

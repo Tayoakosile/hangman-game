@@ -8,7 +8,7 @@ const GameModal = () => {
     handleUpdatePageIndex,
     handleUpdateCategory,
     handleCategorySelected,
-    // handlePlayAgain,
+    handlePlayAgain,
     allCategories,
     modalContent,
   } = useContext(StoreContext);
@@ -44,9 +44,9 @@ const GameModal = () => {
                 );
                 handleCategorySelected(nonSelectedCategory[randomIndex]);
                 // handleUpdatePageIndex(0);
-                // setInterval(() => {
-                //   handlePlayAgain();
-                // }, 500);
+                setTimeout(() => {
+                  handlePlayAgain();
+                }, 100);
               }
               handleToggleModal(false);
             }}
@@ -57,7 +57,7 @@ const GameModal = () => {
             className="bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95"
             onClick={() => {
               handleUpdatePageIndex(2);
-              // handlePlayAgain();
+              handlePlayAgain();
             }}
           >
             New Category
@@ -66,7 +66,7 @@ const GameModal = () => {
             className=" bg-gradient-to-b from-[#FE71FE] via-[#B785FF] to-[#7199FF] bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl  shadow-[#FE71FE] shadow w-full tracking-wide hover:bg-fuchsia-300 cursor-pointer ring-offset-fuchsia-400 ring-offset-1 focus:ring-4 active:scale-95"
             onClick={() => {
               handleUpdatePageIndex(0);
-              // handlePlayAgain();
+              handlePlayAgain();
             }}
           >
             {/* border-t-[#C643FC]  border-x-[#C643FC] border-4 border-b-[#140E66] */}
