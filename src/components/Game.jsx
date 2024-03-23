@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import StoreContext from "../contexts/StoreContext";
 import { motion } from "framer-motion";
 
-const Word = ({ isDisabled = false, text = "U" }) => {
+const Word = ({ isDisabled = false, gameOver = false, text = "U" }) => {
   return (
     <div
       className={` ${
@@ -12,9 +12,12 @@ const Word = ({ isDisabled = false, text = "U" }) => {
     >
       <motion.span
         initial={{ opacity: 0 }}
-        animate={{ opacity: isDisabled ? 0 : 1 }}
+        animate={{ opacity: isDisabled ? 0 : gameOver ? [0, 0.5, 0.8, 1, 0,0.5] : 1 }}
+        exit={{ opacity: 0 }}
         transition={{
-          duration: 0.2,
+          duration: gameOver ? 0.8 : 0,
+          repeat: gameOver ? Infinity : 0,
+          repeatType: "mirror",
         }}
       >
         {text}
@@ -127,7 +130,8 @@ const Game = () => {
     }
     handlePlayAudio("invalid");
 
-    // if (chancesLeft <= 1) return setTimeout(() => {}, 200);
+    console.log(updatedCategories, "updatedCategories");
+
     handleUpdateChanceLeft();
   };
 
@@ -140,7 +144,7 @@ const Game = () => {
         ?.map((letter) => {
           return {
             letter: letter?.toLowerCase(),
-            wasPicked: false,
+            gameOver: false,
             wasCorrectlyPicked: false,
           };
         })
@@ -148,41 +152,36 @@ const Game = () => {
   }, [categorySelected]);
 
   useEffect(() => {
-    const updatedCategorySelected = categorySelected?.name
-      ?.replaceAll(" ", "")
-      .split("")
-      ?.map((letter) => {
-        return { letter, wasCorrectlyPicked: true };
-      });
-
     setProgressBarPercentage(14.3 * chancesLeft);
-    if (chancesLeft <= 0) setUpdatedCategories(updatedCategorySelected);
-  }, [chancesLeft, categorySelected]);
+
+    if (chancesLeft <= 0) {
+      setUpdatedCategories(
+        updatedCategories?.map((category) => {
+          return { ...category, gameOver: true };
+        })
+      );
+    }
+  }, [chancesLeft]);
 
   useEffect(() => {
-    if (updatedCategories.length) {
-      if (chancesLeft <= 0) return;
+    if (!updatedCategories.length) return;
+    if (
+      updatedCategories.every(
+        (category) => category.wasCorrectlyPicked === true
+      )
+    ) {
+      handleUpdateModalContent(
+        {
+          textContent: "You Won",
+          won: true,
+          lost: false,
+        },
+        true
+      );
 
-      if (
-        updatedCategories.every(
-          (category) => category.wasCorrectlyPicked === true
-        )
-      ) {
-        handleUpdateModalContent(
-          {
-            textContent: "You Won",
-            won: true,
-            lost: false,
-          },
-          true
-        );
-
-        setTimeout(() => {
-          handlePlayAudio("won");
-        }, 200);
-      }
+      handlePlayAudio("won");
     }
-  }, [updatedCategories, chancesLeft]);
+  }, [updatedCategories]);
 
   return (
     <section className="pt-[1.5rem] md:pt-16 lg:pt-16 px-5 md:px-10 lg:px-[6.5rem] 2xl:px-[7rem] capitalize">
@@ -298,7 +297,10 @@ const Game = () => {
           <Word
             key={`${index}`}
             text={category?.letter}
-            isDisabled={!category?.wasCorrectlyPicked}
+            gameOver={category?.gameOver}
+            isDisabled={
+              category?.gameOver ? false : !category?.wasCorrectlyPicked
+            }
           />
         ))}
       </div>

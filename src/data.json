@@ -292,7 +292,11 @@
                 "selected": false
             },
             {
-                "name": "50 Cent",
+                "name": "Fifty Cent",
+                "selected": false
+            },
+            {
+                "name": "Sza",
                 "selected": false
             },
             {
@@ -472,6 +476,10 @@
                 "selected": false
             },
             {
+                "name": "BNXN",
+                "selected": false
+            },
+            {
                 "name": "Ayra Starr",
                 "selected": false
             },
@@ -536,7 +544,7 @@
                 "selected": false
             },
             {
-                "name": "2face",
+                "name": "Tuface",
                 "selected": false
             },
             {
@@ -583,10 +591,7 @@
                 "name": "Ladipoe",
                 "selected": false
             },
-            {
-                "name": "9ice",
-                "selected": false
-            },
+            
             {
                 "name": "Peruzzi",
                 "selected": false
@@ -1158,6 +1163,14 @@
                 "selected": false
             },
             {
+                "name": "whining",
+                "selected": false
+            },
+            {
+                "name": "naso",
+                "selected": false
+            },
+            {
                 "name": "Japa",
                 "selected": false
             },
@@ -1223,6 +1236,64 @@
             },
             {
                 "name": "Shey",
+                "selected": false
+            }
+        ],
+        "9ja foods": [
+            {
+                "name": "Jollof Rice",
+                "selected": false
+            },
+            {
+                "name": "Fried Rice",
+                "selected": false
+            },
+            {
+                "name": "Spaghetti",
+                "selected": false
+            },
+            {
+                "name": "Ewa Agoyin",
+                "selected": false
+            },
+            {
+                "name": "Moi Moi",
+                "selected": false
+            },
+            {
+                "name": "Ogbono",
+                "selected": false
+            },
+            {
+                "name": "Egusi",
+                "selected": false
+            },
+            {
+                "name": "Akara",
+                "selected": false
+            },
+            {
+                "name": "Efo Riro",
+                "selected": false
+            },
+            {
+                "name": "Fufu",
+                "selected": false
+            },
+            {
+                "name": "Tuwo Shinkafa",
+                "selected": false
+            },
+            {
+                "name": "Ofada Rice",
+                "selected": false
+            },
+            {
+                "name": "Puff Puff",
+                "selected": false
+            },
+            {
+                "name": "Rice and Beans",
                 "selected": false
             }
         ]

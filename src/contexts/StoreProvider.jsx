@@ -45,9 +45,8 @@ const StoreProvider = ({ children }) => {
 
   useEffect(() => {
     if (chancesLeft <= 0) {
+      handlePlayAudio("lost");
       setTimeout(() => {
-        handlePlayAudio("lost");
-
         handleUpdateModalContent(
           {
             ...modalContent,
@@ -56,7 +55,7 @@ const StoreProvider = ({ children }) => {
           },
           true
         );
-      }, 500);
+      }, 1000);
     }
   }, [chancesLeft]);
 
