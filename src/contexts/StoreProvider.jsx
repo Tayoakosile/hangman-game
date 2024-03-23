@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StoreContext from "./StoreContext";
 import userLostAudio from "../assets/audio/user-lost.wav";
 import userWonAudio from "../assets/audio/user-won.mp3";
@@ -9,7 +9,7 @@ import validSelectionAudio from "../assets/audio/valid.wav";
 const StoreProvider = ({ children }) => {
   const [shouldShowModal, setShouldShowModal] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
-  const [allAudios,_] = useState({
+  const [allAudios, _] = useState({
     won: userWonAudio,
     lost: userLostAudio,
     invalid: invalidSelectionAudio,
@@ -40,23 +40,26 @@ const StoreProvider = ({ children }) => {
   const handleStoreCategoryPicked = (categoryPicked) =>
     setCategory(categoryPicked);
 
-  const handleUpdateChanceLeft = () => {
-    console.log("this ran here");
-    if (chancesLeft <= 0) {
-      handlePlayAudio("lost");
-      handleUpdateModalContent(
-        {
-          ...modalContent,
-          lost: true,
-          textContent: "You Lose",
-        },
-        true
-      );
+  const handleUpdateChanceLeft = () =>
+    chancesLeft >= 1 && setChancesLeft(chancesLeft - 1);
 
-      return;
+  useEffect(() => {
+    if (chancesLeft <= 0) {
+      setTimeout(() => {
+        handlePlayAudio("lost");
+
+        handleUpdateModalContent(
+          {
+            ...modalContent,
+            lost: true,
+            textContent: "You Lose",
+          },
+          true
+        );
+      }, 300);
     }
-    setChancesLeft(chancesLeft - 1);
-  };
+  }, [chancesLeft]);
+
   const handleUpdateCategory = (categories, name) => {
     // Update Category List and Filter `selected=true` category from the list.
     const newCategories = allCategories?.length ? allCategories : categories;
@@ -85,14 +88,16 @@ const StoreProvider = ({ children }) => {
     audio.play();
   };
 
-  const handlePlayAgain = () => {
-    console.log("this ran also");
+  const handlePlayAgain = (shouldCloseModal) => {
+    shouldCloseModal && setShouldShowModal(false);
     setChancesLeft(7);
-    setModalContent({
-      lost: false,
-      won: false,
-      textContent: "Paused",
-    });
+    setTimeout(() => {
+      setModalContent({
+        lost: false,
+        won: false,
+        textContent: "Paused",
+      });
+    }, 200);
   };
 
   return (

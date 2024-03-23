@@ -44,11 +44,8 @@ const GameModal = () => {
                 );
                 handleCategorySelected(nonSelectedCategory[randomIndex]);
                 // handleUpdatePageIndex(0);
-                setTimeout(() => {
-                  handlePlayAgain();
-                }, 100);
+                handlePlayAgain(true);
               }
-              handleToggleModal(false);
             }}
           >
             {modalContent.lost || modalContent.won ? "Play Again!" : "Continue"}
@@ -56,8 +53,9 @@ const GameModal = () => {
           <button
             className="bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95"
             onClick={() => {
+              handlePlayAgain(true);
+
               handleUpdatePageIndex(2);
-              handlePlayAgain();
             }}
           >
             New Category
@@ -65,11 +63,11 @@ const GameModal = () => {
           <button
             className=" bg-gradient-to-b from-[#FE71FE] via-[#B785FF] to-[#7199FF] bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl  shadow-[#FE71FE] shadow w-full tracking-wide hover:bg-fuchsia-300 cursor-pointer ring-offset-fuchsia-400 ring-offset-1 focus:ring-4 active:scale-95"
             onClick={() => {
+              handlePlayAgain(true);
+
               handleUpdatePageIndex(0);
-              handlePlayAgain();
             }}
           >
-            {/* border-t-[#C643FC]  border-x-[#C643FC] border-4 border-b-[#140E66] */}
             Quit Game
           </button>
         </div>

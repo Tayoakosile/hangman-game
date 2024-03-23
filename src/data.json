@@ -6,6 +6,10 @@
                 "selected": false
             },
             {
+                "name": "Bad Land Hunters",
+                "selected": false
+            },
+            {
                 "name": "Titanic",
                 "selected": false
             },
@@ -31,6 +35,34 @@
             },
             {
                 "name": "Jaws",
+                "selected": false
+            },
+            {
+                "name": "Acrimony",
+                "selected": false
+            },
+            {
+                "name": "A Hitmans Bodyguard",
+                "selected": false
+            },
+            {
+                "name": "The BeeKeeper",
+                "selected": false
+            },
+            {
+                "name": "Airforce One",
+                "selected": false
+            },
+            {
+                "name": "Sausage Party",
+                "selected": false
+            },
+            {
+                "name": "BlackList",
+                "selected": false
+            },
+            {
+                "name": "Into the Bad Lands",
                 "selected": false
             },
             {
@@ -174,125 +206,397 @@
                 "selected": false
             }
         ],
-        "tv shows": [
+        "musicians": [
             {
-                "name": "Real Housewives of Lagos",
+                "name": "Burna Boy",
                 "selected": false
             },
             {
-                "name": "Nigerian Idol",
+                "name": "Cardi B",
                 "selected": false
             },
             {
-                "name": "Game of Thrones",
+                "name": "Cardi B",
                 "selected": false
             },
             {
-                "name": "Stranger Things",
+                "name": "Drake",
                 "selected": false
             },
             {
-                "name": "The Sopranos",
+                "name": "Kanye West",
                 "selected": false
             },
             {
-                "name": "Big Brother Naija",
+                "name": "Nicki Minaj",
                 "selected": false
             },
             {
-                "name": "The Office",
+                "name": "Travis Scott",
                 "selected": false
             },
             {
-                "name": "Sherlock",
+                "name": "Lil Wayne",
                 "selected": false
             },
             {
-                "name": "Black Mirror",
+                "name": "Kendrick Lamar",
                 "selected": false
             },
             {
-                "name": "The Crown",
+                "name": "Post Malone",
                 "selected": false
             },
             {
-                "name": "Westworld",
+                "name": "Eminem",
                 "selected": false
             },
             {
-                "name": "Better Call Saul",
+                "name": "Future",
                 "selected": false
             },
             {
-                "name": "Orange Is the New Black",
+                "name": "Jay-Z",
                 "selected": false
             },
             {
-                "name": "The Simpsons",
+                "name": "Ariana Grande",
                 "selected": false
             },
             {
-                "name": "Arrested Development",
+                "name": "Justin Bieber",
                 "selected": false
             },
             {
-                "name": "Succession",
+                "name": "Beyoncé",
                 "selected": false
             },
             {
-                "name": "Fargo",
+                "name": "Rihanna",
                 "selected": false
             },
             {
-                "name": "Mad Men",
+                "name": "Taylor Swift",
                 "selected": false
             },
             {
-                "name": "The West Wing",
+                "name": "Ed Sheeran",
                 "selected": false
             },
             {
-                "name": "Clinic Matters",
+                "name": "Adele",
                 "selected": false
             },
             {
-                "name": "Rick and Morty",
+                "name": "Snoop Dogg",
                 "selected": false
             },
             {
-                "name": "Lost",
+                "name": "50 Cent",
                 "selected": false
             },
             {
-                "name": "Doctor Who",
+                "name": "Lil Baby",
                 "selected": false
             },
             {
-                "name": "The Walking Dead",
+                "name": "Megan Thee Stallion",
                 "selected": false
             },
             {
-                "name": "Peaky Blinders",
+                "name": "Lil Nas X",
                 "selected": false
             },
             {
-                "name": "Buffy the Vampire Slayer",
+                "name": "J. Cole",
                 "selected": false
             },
             {
-                "name": "The Big Bang Theory",
+                "name": "Migos",
                 "selected": false
             },
             {
-                "name": "Curb Your Enthusiasm",
+                "name": "Meek Mill",
                 "selected": false
             },
             {
-                "name": "Tinsel",
+                "name": "Cardi B",
                 "selected": false
             },
             {
-                "name": "Super Story",
+                "name": "Chance the Rapper",
+                "selected": false
+            },
+            {
+                "name": "Lizzo",
+                "selected": false
+            },
+            {
+                "name": "Khalid",
+                "selected": false
+            },
+            {
+                "name": "The Weeknd",
+                "selected": false
+            },
+            {
+                "name": "Logic",
+                "selected": false
+            },
+            {
+                "name": "Post Malone",
+                "selected": false
+            },
+            {
+                "name": "Dua Lipa",
+                "selected": false
+            },
+            {
+                "name": "Doja Cat",
+                "selected": false
+            },
+            {
+                "name": "Billie Eilish",
+                "selected": false
+            },
+            {
+                "name": "Chris Brown",
+                "selected": false
+            },
+            {
+                "name": "Katy Perry",
+                "selected": false
+            },
+            {
+                "name": "Alicia Keys",
+                "selected": false
+            },
+            {
+                "name": "Miley Cyrus",
+                "selected": false
+            },
+            {
+                "name": "Shawn Mendes",
+                "selected": false
+            },
+            {
+                "name": "Camila Cabello",
+                "selected": false
+            },
+            {
+                "name": "Halsey",
+                "selected": false
+            },
+            {
+                "name": "Zayn Malik",
+                "selected": false
+            },
+            {
+                "name": "Jason Derulo",
+                "selected": false
+            },
+            {
+                "name": "Sam Smith",
+                "selected": false
+            },
+            {
+                "name": "Bruno Mars",
+                "selected": false
+            },
+            {
+                "name": "Wizkid",
+                "selected": false
+            },
+            {
+                "name": "Davido",
+                "selected": false
+            },
+            {
+                "name": "Rema",
+                "selected": false
+            },
+            {
+                "name": "P-Square",
+                "selected": false
+            },
+            {
+                "name": "Tekno Miles",
+                "selected": false
+            },
+            {
+                "name": "Flavour",
+                "selected": false
+            },
+            {
+                "name": "Fireboy DML",
+                "selected": false
+            },
+            {
+                "name": "Kizz Daniel",
+                "selected": false
+            },
+            {
+                "name": "Yemi Alade",
+                "selected": false
+            },
+            {
+                "name": "Rude boy",
+                "selected": false
+            },
+            {
+                "name": "Patoranking",
+                "selected": false
+            },
+            {
+                "name": "Tiwa Savage",
+                "selected": false
+            },
+            {
+                "name": "MavinRecords",
+                "selected": false
+            },
+            {
+                "name": "Mr Eazi",
+                "selected": false
+            },
+            {
+                "name": "Ruger",
+                "selected": false
+            },
+            {
+                "name": "Timaya",
+                "selected": false
+            },
+            {
+                "name": "Olamide",
+                "selected": false
+            },
+            {
+                "name": "Ayra Starr",
+                "selected": false
+            },
+            {
+                "name": "Joeboy",
+                "selected": false
+            },
+            {
+                "name": "Asake",
+                "selected": false
+            },
+            {
+                "name": "Adekunle Gold",
+                "selected": false
+            },
+            {
+                "name": "Chidinma",
+                "selected": false
+            },
+            {
+                "name": "Teni",
+                "selected": false
+            },
+            {
+                "name": "Simi",
+                "selected": false
+            },
+            {
+                "name": "Phyno",
+                "selected": false
+            },
+            {
+                "name": "Singah",
+                "selected": false
+            },
+            {
+                "name": "Iyanya",
+                "selected": false
+            },
+            {
+                "name": "Ycee",
+                "selected": false
+            },
+            {
+                "name": "Chike",
+                "selected": false
+            },
+            {
+                "name": "Brymo",
+                "selected": false
+            },
+            {
+                "name": "Dbanj",
+                "selected": false
+            },
+            {
+                "name": "Skales",
+                "selected": false
+            },
+            {
+                "name": "Mr P",
+                "selected": false
+            },
+            {
+                "name": "2face",
+                "selected": false
+            },
+            {
+                "name": "Banky W",
+                "selected": false
+            },
+            {
+                "name": "Falz",
+                "selected": false
+            },
+            {
+                "name": "Mayorkun",
+                "selected": false
+            },
+            {
+                "name": "Harrysong",
+                "selected": false
+            },
+            {
+                "name": "Magixx",
+                "selected": false
+            },
+            {
+                "name": "Duncan Mighty",
+                "selected": false
+            },
+            {
+                "name": "Ice Prince",
+                "selected": false
+            },
+            {
+                "name": "Asa",
+                "selected": false
+            },
+            {
+                "name": "Fela Anikulapo Kuti",
+                "selected": false
+            },
+            {
+                "name": "Diija",
+                "selected": false
+            },
+            {
+                "name": "Ladipoe",
+                "selected": false
+            },
+            {
+                "name": "9ice",
+                "selected": false
+            },
+            {
+                "name": "Peruzzi",
+                "selected": false
+            },
+            {
+                "name": "M.I",
+                "selected": false
+            },
+            {
+                "name": "Omawunmi",
                 "selected": false
             }
         ],
@@ -303,6 +607,14 @@
             },
             {
                 "name": "Brazil",
+                "selected": false
+            },
+            {
+                "name": "Malaysia",
+                "selected": false
+            },
+            {
+                "name": "Malaysia",
                 "selected": false
             },
             {
@@ -456,7 +768,19 @@
                 "selected": false
             },
             {
-                "name": "Ottawa",
+                "name": "Ikeja",
+                "selected": false
+            },
+            {
+                "name": "Umuahia",
+                "selected": false
+            },
+            {
+                "name": "Uyo",
+                "selected": false
+            },
+            {
+                "name": "Ibadan",
                 "selected": false
             },
             {
@@ -465,6 +789,10 @@
             },
             {
                 "name": "Moscow",
+                "selected": false
+            },
+            {
+                "name": "Calabar",
                 "selected": false
             },
             {
@@ -484,6 +812,14 @@
                 "selected": false
             },
             {
+                "name": "Port Harcourt",
+                "selected": false
+            },
+            {
+                "name": "Gusau",
+                "selected": false
+            },
+            {
                 "name": "Madrid",
                 "selected": false
             },
@@ -492,7 +828,23 @@
                 "selected": false
             },
             {
-                "name": "Buenos Aires",
+                "name": "Calabar",
+                "selected": false
+            },
+            {
+                "name": "Enugu",
+                "selected": false
+            },
+            {
+                "name": "Ado Ekiti",
+                "selected": false
+            },
+            {
+                "name": "Ilorin",
+                "selected": false
+            },
+            {
+                "name": "Akure",
                 "selected": false
             },
             {
@@ -504,11 +856,7 @@
                 "selected": false
             },
             {
-                "name": "Seoul",
-                "selected": false
-            },
-            {
-                "name": "Jakarta",
+                "name": "Oshogbo",
                 "selected": false
             },
             {
@@ -801,6 +1149,80 @@
             },
             {
                 "name": "American Football",
+                "selected": false
+            }
+        ],
+        "9ja slangs": [
+            {
+                "name": "Sapa",
+                "selected": false
+            },
+            {
+                "name": "Japa",
+                "selected": false
+            },
+            {
+                "name": "Ajebutter",
+                "selected": false
+            },
+            {
+                "name": "Kolo",
+                "selected": false
+            },
+            {
+                "name": "No evidence",
+                "selected": false
+            },
+            {
+                "name": "Ment",
+                "selected": false
+            },
+            {
+                "name": "Chai",
+                "selected": false
+            },
+            {
+                "name": "E Choke",
+                "selected": false
+            },
+            {
+                "name": "Mafo",
+                "selected": false
+            },
+            {
+                "name": "We Meuuve",
+                "selected": false
+            },
+            {
+                "name": "FFO",
+                "selected": false
+            },
+            {
+                "name": "Oya",
+                "selected": false
+            },
+            {
+                "name": "Awfa",
+                "selected": false
+            },
+            {
+                "name": "Amebo",
+                "selected": false
+            },
+            {
+                "name": "Dey Play",
+                "selected": false
+            },
+            {
+                "name": "Idan",
+                "selected": false
+            },
+            {
+                "name": "Amebo",
+                "selected": false
+            },
+            {
+                "name": "Shey",
                 "selected": false
             }
         ]

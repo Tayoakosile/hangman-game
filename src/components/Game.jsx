@@ -1,15 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 // import { ReactComponent as IconHeart } from "./../assets/ images/icon-heart.svg";
 import StoreContext from "../contexts/StoreContext";
+import { motion } from "framer-motion";
 
 const Word = ({ isDisabled = false, text = "U" }) => {
   return (
     <div
       className={` ${
         isDisabled ? "bg-[#1B2182]" : "bg-hm_blue"
-      }   text-4xl md:text-[4rem] w-full  lg:text-[5.5rem] px-3 py-2 rounded-xl md:rounded-[3rem] min-w-[2.5rem] md:max-w-[5rem] lg:max-w-[7rem] text-white h-[4.13rem] md:h-[7rem]  xl:h-[8rem]   text-center flex items-center justify-center`}
+      }   text-4xl md:text-[4rem] w-full lg:text-[5.5rem] px-3 py-2 rounded-xl md:rounded-[3rem] min-w-[2.5rem] md:max-w-[5rem] lg:max-w-[7rem] text-white h-[4.13rem] md:h-[7rem] xl:h-[8rem] text-center flex items-center justify-center`}
     >
-      {isDisabled ? "" : text}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isDisabled ? 0 : 1 }}
+        transition={{
+          duration: 0.2,
+        }}
+      >
+        {text}
+      </motion.span>
     </div>
   );
 };
@@ -117,6 +126,8 @@ const Game = () => {
       return;
     }
     handlePlayAudio("invalid");
+
+    // if (chancesLeft <= 1) return setTimeout(() => {}, 200);
     handleUpdateChanceLeft();
   };
 
@@ -137,32 +148,41 @@ const Game = () => {
   }, [categorySelected]);
 
   useEffect(() => {
+    const updatedCategorySelected = categorySelected?.name
+      ?.replaceAll(" ", "")
+      .split("")
+      ?.map((letter) => {
+        return { letter, wasCorrectlyPicked: true };
+      });
+
     setProgressBarPercentage(14.3 * chancesLeft);
-  }, [chancesLeft]);
+    if (chancesLeft <= 0) setUpdatedCategories(updatedCategorySelected);
+  }, [chancesLeft, categorySelected]);
 
   useEffect(() => {
-    console.log("This ran in game");
-    if (!updatedCategories.length) return;
+    if (updatedCategories.length) {
+      if (chancesLeft <= 0) return;
 
-    if (
-      updatedCategories.every(
-        (category) => category.wasCorrectlyPicked === true
-      )
-    ) {
-      handleUpdateModalContent(
-        {
-          textContent: "You Won",
-          won: true,
-          lost: false,
-        },
-        true
-      );
+      if (
+        updatedCategories.every(
+          (category) => category.wasCorrectlyPicked === true
+        )
+      ) {
+        handleUpdateModalContent(
+          {
+            textContent: "You Won",
+            won: true,
+            lost: false,
+          },
+          true
+        );
 
-      setTimeout(() => {
-        handlePlayAudio("won");
-      }, 200);
+        setTimeout(() => {
+          handlePlayAudio("won");
+        }, 200);
+      }
     }
-  }, [updatedCategories]);
+  }, [updatedCategories, chancesLeft]);
 
   return (
     <section className="pt-[1.5rem] md:pt-16 lg:pt-16 px-5 md:px-10 lg:px-[6.5rem] 2xl:px-[7rem] capitalize">
@@ -172,7 +192,7 @@ const Game = () => {
             <button
               onClick={() => {
                 handleToggleModal();
-                
+
                 handleUpdateModalContent(
                   {
                     textContent: "Paused",
@@ -235,7 +255,31 @@ const Game = () => {
             </div>
 
             <div className="scale-50 lg:scale-100">
-            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="50" fill="none" viewBox="0 0 54 50"><path fill="url(#a)" d="m26.667 49.467-3.867-3.52C9.067 33.493 0 25.253 0 15.2 0 6.96 6.453.533 14.667.533c4.64 0 9.093 2.16 12 5.547 2.906-3.387 7.36-5.547 12-5.547C46.88.533 53.333 6.96 53.333 15.2c0 10.053-9.066 18.293-22.8 30.747l-3.866 3.52Z"/><defs><linearGradient id="a" x1="26.667" x2="26.667" y1="8.567" y2="49.467" gradientUnits="userSpaceOnUse"><stop stopColor="#FE71FE"/><stop offset="1" stopColor="#7199FF"/></linearGradient></defs></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="54"
+                height="50"
+                fill="none"
+                viewBox="0 0 54 50"
+              >
+                <path
+                  fill="url(#a)"
+                  d="m26.667 49.467-3.867-3.52C9.067 33.493 0 25.253 0 15.2 0 6.96 6.453.533 14.667.533c4.64 0 9.093 2.16 12 5.547 2.906-3.387 7.36-5.547 12-5.547C46.88.533 53.333 6.96 53.333 15.2c0 10.053-9.066 18.293-22.8 30.747l-3.866 3.52Z"
+                />
+                <defs>
+                  <linearGradient
+                    id="a"
+                    x1="26.667"
+                    x2="26.667"
+                    y1="8.567"
+                    y2="49.467"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#FE71FE" />
+                    <stop offset="1" stopColor="#7199FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
           </li>
         </ul>

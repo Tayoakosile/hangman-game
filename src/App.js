@@ -72,14 +72,9 @@ function App() {
         {shouldShowModal && (
           <motion.div
             key="game_modal"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            // exit={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 0.3,
-              
-            }}
+            initial={{ opacity: 0, transitionDuration: 0.2 }}
+            animate={{ opacity: 1, transitionDuration: 0.2 }}
+            exit={{ opacity: 0, transitionDuration: 0.1 }}
           >
             <GameModal />
           </motion.div>

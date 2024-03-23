@@ -7,7 +7,7 @@ const MainMenu = () => {
   const { handleUpdatePageIndex } = useContext(StoreContext);
 
   return (
-    <section className=" pt-24 md:pt-32 lg:pt-52 h-full w-full px-5 flex items-center relative overflow-hidden">
+    <section className=" pt-24 md:pt-64 lg:pt-52 h-full w-full px-5 flex items-center relative overflow-hidden">
       {/* The Hangman Game Heading */}
 
       <div className="h-[30.07rem] lg:h-[31.25rem] rounded-[3rem] w-full bg-hman_mobile-play-bg md:bg-hman_tablet-play-bg lg:bg-hman_desktop-play-bg flex items-center justify-center bg-no-repeat bg-contain bg-center flex-col relative">
