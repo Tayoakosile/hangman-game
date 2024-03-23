@@ -56,7 +56,7 @@ const StoreProvider = ({ children }) => {
           },
           true
         );
-      }, 300);
+      }, 500);
     }
   }, [chancesLeft]);
 

@@ -307,7 +307,7 @@ const Game = () => {
         {allAlphabets.map(({ letter, wasPicked }) => (
           <WordAsKeyboard
             key={letter}
-            isDisabled={wasPicked}
+            isDisabled={wasPicked || chancesLeft <= 0}
             text={letter}
             onClick={handleOnLetterClicked}
           />
