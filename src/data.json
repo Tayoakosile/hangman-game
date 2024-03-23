@@ -556,6 +556,10 @@
                 "selected": false
             },
             {
+                "name": "Zlatan",
+                "selected": false
+            },
+            {
                 "name": "Mayorkun",
                 "selected": false
             },
@@ -591,13 +595,36 @@
                 "name": "Ladipoe",
                 "selected": false
             },
-            
             {
                 "name": "Peruzzi",
                 "selected": false
             },
             {
                 "name": "M.I",
+                "selected": false
+            },
+            {
+                "name": "Oxlade",
+                "selected": false
+            },
+            {
+                "name": "Bella Shmurda",
+                "selected": false
+            },
+            {
+                "name": "Omah Lay",
+                "selected": false
+            },
+            {
+                "name": "Crayon",
+                "selected": false
+            },
+            {
+                "name": "Vector",
+                "selected": false
+            },
+            {
+                "name": "Tems",
                 "selected": false
             },
             {
@@ -1294,6 +1321,22 @@
             },
             {
                 "name": "Rice and Beans",
+                "selected": false
+            },
+            {
+                "name": "Coconut Rice",
+                "selected": false
+            },
+            {
+                "name": "Ikokore",
+                "selected": false
+            },
+            {
+                "name": "Pepper Soup",
+                "selected": false
+            },
+            {
+                "name": "Nkwobi",
                 "selected": false
             }
         ]
