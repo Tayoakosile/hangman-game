@@ -130,7 +130,7 @@ const Game = () => {
     }
     handlePlayAudio("invalid");
 
-    console.log(updatedCategories, "updatedCategories");
+    
 
     handleUpdateChanceLeft();
   };
