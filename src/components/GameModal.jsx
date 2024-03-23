@@ -45,7 +45,9 @@ const GameModal = () => {
                 handleCategorySelected(nonSelectedCategory[randomIndex]);
                 // handleUpdatePageIndex(0);
                 handlePlayAgain(true);
+                return;
               }
+              handleToggleModal(false)
             }}
           >
             {modalContent.lost || modalContent.won ? "Play Again!" : "Continue"}
@@ -53,9 +55,8 @@ const GameModal = () => {
           <button
             className="bg-hm_blue block px-[4rem] py-3 rounded-[2.5rem]  text-white text-4xl w-full tracking-wide hover:bg-[#5A8AFF] cursor-pointer ring-offset-blue-400 ring-offset-1 focus:ring-4 active:scale-95"
             onClick={() => {
-              handlePlayAgain(true);
-
               handleUpdatePageIndex(2);
+              // handlePlayAgain(true);
             }}
           >
             New Category

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 // import { ReactComponent as IconHeart } from "./../assets/ images/icon-heart.svg";
 import StoreContext from "../contexts/StoreContext";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Word = ({ isDisabled = false, gameOver = false, text = "U" }) => {
   return (
@@ -12,8 +12,10 @@ const Word = ({ isDisabled = false, gameOver = false, text = "U" }) => {
     >
       <motion.span
         initial={{ opacity: 0 }}
-        animate={{ opacity: isDisabled ? 0 : gameOver ? [0, 0.5, 0.8, 1, 0,0.5] : 1 }}
-        exit={{ opacity: 0 }}
+        animate={{
+          opacity: isDisabled ? 0 : gameOver ? [0, 0.5, 0.8, 1, 0, 0.5] : 1,
+        }}
+        // exit={{ opacity: 0 }}
         transition={{
           duration: gameOver ? 0.8 : 0,
           repeat: gameOver ? Infinity : 0,
@@ -129,8 +131,6 @@ const Game = () => {
       return;
     }
     handlePlayAudio("invalid");
-
-    
 
     handleUpdateChanceLeft();
   };

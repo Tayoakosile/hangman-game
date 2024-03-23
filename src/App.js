@@ -45,8 +45,7 @@ function App() {
             key="PickCategory"
             initial={{ opacity: 0, scale: 0.4 }}
             animate={{ opacity: 1, scale: 1 }}
-            // exit={{ opacity: 0 }}
-            exit={{ scale: 0.4, opacity: 0 }}
+            exit={{ scale: 0, opacity: 0 }}
             transition={{
               duration: 0.2,
             }}
@@ -68,18 +67,18 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-      <AnimatePresence mode="wait">
-        {shouldShowModal && (
-          <motion.div
-            key="game_modal"
-            initial={{ opacity: 0, transitionDuration: 0.2 }}
-            animate={{ opacity: 1, transitionDuration: 0.2 }}
-            exit={{ opacity: 0, transitionDuration: 0.1 }}
-          >
-            <GameModal />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      
+      {shouldShowModal && (
+        <motion.div
+          key="game_modal"
+          initial={{ opacity: 0, transitionDuration: 0.2 }}
+          animate={{ opacity: 1, transitionDuration: 0.2 }}
+          exit={{ opacity: 0, transitionDuration: 0.1 }}
+        >
+          <GameModal />
+        </motion.div>
+      )}
+      {/* </AnimatePresence> */}
     </div>
   );
 }
